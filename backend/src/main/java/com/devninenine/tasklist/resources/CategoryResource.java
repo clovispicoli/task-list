@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devninenine.tasklist.entities.Category;
+import com.devninenine.tasklist.dto.CategoryDTO;
 import com.devninenine.tasklist.entities.services.CategoryService;
 
 @RestController
@@ -19,7 +19,7 @@ public class CategoryResource {
 	private CategoryService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Category>> findAll(){
-		List<Category> list = service.fikndAll();
+	public ResponseEntity<List<CategoryDTO>> findAll(){
+		List<CategoryDTO> list = service.fikndAll();
 		return ResponseEntity.ok().body(list);	}
 }
