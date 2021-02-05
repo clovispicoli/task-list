@@ -1,4 +1,4 @@
-package com.devninenine.tasklist.entities.services.exceptions;
+package com.devninenine.tasklist.services.exceptions;
 
 public class DatabaseException extends RuntimeException{
 	private static final long serialVersionUID = 1L;

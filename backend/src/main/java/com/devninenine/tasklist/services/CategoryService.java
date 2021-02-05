@@ -1,4 +1,4 @@
-package com.devninenine.tasklist.entities.services;
+package com.devninenine.tasklist.services;
 
 import java.util.Optional;
 
@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devninenine.tasklist.dto.CategoryDTO;
 import com.devninenine.tasklist.entities.Category;
-import com.devninenine.tasklist.entities.services.exceptions.DatabaseException;
-import com.devninenine.tasklist.entities.services.exceptions.ResourceNotFoundException;
 import com.devninenine.tasklist.repositories.CategoryRepository;
+import com.devninenine.tasklist.services.exceptions.DatabaseException;
+import com.devninenine.tasklist.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CategoryService {

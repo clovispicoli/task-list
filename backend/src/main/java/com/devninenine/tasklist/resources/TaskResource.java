@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.devninenine.tasklist.dto.CategoryDTO;
-import com.devninenine.tasklist.services.CategoryService;
+import com.devninenine.tasklist.dto.TaskDTO;
+import com.devninenine.tasklist.services.TaskService;
 
 @RestController
-@RequestMapping(value = "/categories")
-public class CategoryResource {
+@RequestMapping(value = "/tasks")
+public class TaskResource {
 
 	@Autowired
-	private CategoryService service;
-	
+	private TaskService service;
+
 	@GetMapping
-	public ResponseEntity<Page<CategoryDTO>> findAll(
+	public ResponseEntity<Page<TaskDTO>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
@@ -38,32 +38,32 @@ public class CategoryResource {
 
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 
-		Page<CategoryDTO> list = service.findAllPaged(pageRequest);
-		return ResponseEntity.ok().body(list);	
+		Page<TaskDTO> list = service.findAllPaged(pageRequest);
+
+		return ResponseEntity.ok().body(list);
 	}
-	
+
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<CategoryDTO> findById(@PathVariable Long id){
-		CategoryDTO dto = service.findById(id);
+	public ResponseEntity<TaskDTO> findById(@PathVariable Long id){
+		TaskDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
-	
-	
+
 	@PostMapping
-	public ResponseEntity<CategoryDTO> insert(@RequestBody CategoryDTO dto){
+	public ResponseEntity<TaskDTO> insert(@RequestBody TaskDTO dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
-	
+
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<CategoryDTO> insert(@PathVariable Long id, @RequestBody CategoryDTO dto){
+	public ResponseEntity<TaskDTO> update(@PathVariable Long id, @RequestBody TaskDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
-	
+
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<CategoryDTO> delete(@PathVariable Long id){
+	public ResponseEntity<TaskDTO> delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
