@@ -1,14 +1,15 @@
 import React from 'react';
-import { ReactComponent as HomeImage } from 'core/assets/images/task.svg';
 import './styles.scss';
 
 const HomeCard = () => (
     <div className="card-base border-radius-10 home-card">
-        <HomeImage />
+        Descricao da Tarefa
         <div className="home-info">
+        Voce deve procurar um psicoterapeuta urgente para lhe ajudar com seus problemas amorosos.
             <h6 className="home-name">
-                Computador da Home
+               22/06/2008
             </h6>
+            <div className="home-container"></div>
         </div>
     </div>
 );

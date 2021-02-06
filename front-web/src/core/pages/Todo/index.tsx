@@ -6,7 +6,7 @@ import './styles.scss';
 
 const Todo = () => (
     <div className="todo-container">
-        <div className="row todo-content">
+        <div className="row todo-content card-base border-radiu-10">
             <div className="col-6 todo-text">
                 <h1 className="text-title">
                     Organize suas tarefas <br /> de um jeito prático

@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeCard from './components/HomeCard';
+import './styles.scss';
 
 const Home = () => (
     <div className="home-container">
@@ -8,8 +9,17 @@ const Home = () => (
    </h1>
         <div className="home-tasks">
             <HomeCard />
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
         </div>
     </div>
 );
 
-export default Home;
+export default Home;;
