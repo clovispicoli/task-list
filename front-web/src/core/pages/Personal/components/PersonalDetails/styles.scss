@@ -1,15 +1,15 @@
-.paged-details-container {
+.personal-details-container {
     margin-top: 40px;
     padding-left: 40px;
     padding-right: 40px;
 }
 
-.paged-details {
+.personal-details {
     padding: 50px 60px 90px 60px;
     font-size: 48px;
 }
 
-.paged-details-goback{
+.personal-details-goback{
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -29,13 +29,13 @@
     text-transform: uppercase;
 }
 
-.paged-details-card{
+.personal-details-card{
     border: 1px solid #E1E1E1;
     border-radius: 20px;
     padding: 38px 29px;
 }
 
-.paged-description-title {
+.personal-description-title {
     font-size: 24px;
     line-height: 33px;
     letter-spacing: -0.015em;
@@ -43,14 +43,14 @@
     margin-bottom: 25px;
 }
 
-.paged-description-text {
+.personal-description-text {
     font-size: 18px;
     line-height: 25px;
     letter-spacing: -0.015em;
     color: #9E9E9E;
 }
 
-.paged-details-name {
+.personal-details-name {
     font-size: 36px;
     line-height: 49px;
     letter-spacing: -0.015em;

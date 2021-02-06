@@ -17,17 +17,17 @@ const Navbar = () => (
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/home" activeClassName="active">
+                    <NavLink to="/homes" activeClassName="active">
                         Home
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/personal" activeClassName="active">
+                    <NavLink to="/personals" activeClassName="active">
                         Personal
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/work" activeClassName="active">
+                    <NavLink to="/works" activeClassName="active">
                         Work
                     </NavLink>
                 </li>

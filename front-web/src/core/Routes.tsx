@@ -6,6 +6,9 @@ import Work from './pages/Work';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Todo from './pages/Todo';
+import HomeDetails from './pages/Home/HomeDetails';
+import PersonalDetails from './pages/Personal/components/PersonalDetails';
+import WorkDetails from './pages/Work/components/WorkDetails';
 
 const Routes = () => (
     <BrowserRouter>
@@ -14,14 +17,23 @@ const Routes = () => (
         <Route path="/" exact> 
             <Todo />
          </Route>
-         <Route path="/home"> 
+         <Route path="/homes" exact> 
             <Home />
          </Route>
-         <Route path="/work"> 
+         <Route path="/homes/:homeId"> 
+            <HomeDetails />
+         </Route>
+         <Route path="/works" exact> 
             <Work />
          </Route>
-         <Route path="/personal"> 
+         <Route path="/works/:workId"> 
+            <WorkDetails />
+         </Route>
+         <Route path="/personals" exact> 
             <Personal />
+         </Route>
+         <Route path="/personals/:personalId"> 
+            <PersonalDetails />
          </Route>
          <Route path="/admin"> 
             <Admin />

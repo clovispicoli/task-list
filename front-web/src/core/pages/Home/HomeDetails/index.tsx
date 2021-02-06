@@ -4,32 +4,30 @@ import { ReactComponent as ArrowIcon } from 'core/assets/images/arrow.svg';
 import './styles.scss';
 
 type ParamsType = {
-    pagedId: string;
+    homeId: string;
 }
 
-const PagedDetails = () => {
-    const { pagedId } = useParams<ParamsType>();
+const HomeDetails = () => {
+    const { homeId } = useParams<ParamsType>();
 
-    console.log(pagedId);
+    console.log(homeId);
 
     return (
-        <div className="paged-details-container">
+        <div className="home-details-container">
             <div className="card-base border-radius-20 home-details">
-                <Link to="/" className="paged-details-goback">
+                <Link to="/" className="home-details-goback">
                     <ArrowIcon className="icon-goback" />
                     <h1 className="text-goback">voltar</h1>
                 </Link>
                 <div className="row">
-                    <div className="col-6 pr-5 paged-details-card text-center">
-                        <h1 className="paged-details-name">
-                            Computador Home
+                    <div className="col-12 work-details-card">
+                        <h1 className="work-details-name">
+                            Título da tarefa
                        </h1>
-                    </div>
-                    <div className="col-6 paged-details-card">
-                        <h1 className="paged-description-title">
-                            Descrição Home
+                        <h1 className="work-description-title">
+                            Data: 12/09/2022
                         </h1>
-                        <p className="paged-description-text">
+                        <p className="work-description-text">
                             Seja um mestre em multitarefas com a capacidade para exibir quatro
                             aplicativos simultâneos na tela. A tela está ficando abarrotada?
                             Crie áreas de trabalho virtuais para obter mais espaço e trabalhar
@@ -43,4 +41,4 @@ const PagedDetails = () => {
     );
 };
 
-export default PagedDetails;
+export default HomeDetails;
