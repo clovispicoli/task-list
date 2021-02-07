@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Admin from './pages/Admin';
 import Personal from './pages/Personal';
 import Work from './pages/Work';
@@ -35,7 +35,8 @@ const Routes = () => (
          <Route path="/personals/:personalId"> 
             <PersonalDetails />
          </Route>
-         <Route path="/admin"> 
+         <Redirect from="/admins" to="/admins/tasks" exact/>
+         <Route path="/admins"> 
             <Admin />
          </Route>
         </Switch>
