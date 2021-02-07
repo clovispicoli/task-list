@@ -1,37 +1,52 @@
-import { makeRequest } from 'core/utils/request';
 import { PersonalsResponse } from 'core/types/Task';
+import { makeRequest } from 'core/utils/request';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import PersonalCard from './components/PersonalCard';
+import PersonalCard from 'core/pages/Personal/components/PersonalCard';
+import CardLoader from 'core/components/Loaders/CardLoader';
+import Pagination from 'core/components/Pagination';
 import './styles.scss';
 
-const Personal = () => {  
+const Personal = () => {
 
     const [personalsResponse, setPersonalsResponse] = useState<PersonalsResponse>();
+    const [ isLoading, setIsLoading ] = useState(false);
+    const [ activePage, setActivePage ] = useState(0);
 
     useEffect(() => {
         const params = {
-            page: 0,
+            page: activePage,
             linesPerPage: 12
         }
+        setIsLoading(true);
+        makeRequest({ url: '/personals', params })
+            .then(response => setPersonalsResponse(response.data))
+            .finally(() => {
+                setIsLoading(false);
+            })
+    }, [activePage]);
 
-      makeRequest({url: '/personals', params})
-      .then(response => setPersonalsResponse(response.data));
-    }, []);
-
-   return (
-    <div className="personal-container">
-        <h1 className="personal-title">
-            Task Personal
-        </h1>
-        <div className="personal-tasks">
-            {personalsResponse?.content.map(personal => (
-                <Link to={`/personals/${personal.id}`} key={personal.id}>
-                    <PersonalCard task={personal}/>
-                </Link>
-            ))}
+    return (
+        <div className="personal-container">
+            <h1 className="personal-title">
+                Task personal
+            </h1>
+            <div className="personal-tasks">
+            {isLoading ? <CardLoader /> : (
+                personalsResponse?.content.map(personal => (
+                    <Link to={`/personals/${personal.id}`} key={personal.id}>
+                        <PersonalCard task={personal} />
+                    </Link>
+                )))}
+            </div>
+            {personalsResponse && (
+                <Pagination
+                    totalPages={personalsResponse.totalPages}
+                    activePage={activePage}
+                    onChange={page => setActivePage(page)}
+                />
+            )}
         </div>
-    </div>
     );
 }
 

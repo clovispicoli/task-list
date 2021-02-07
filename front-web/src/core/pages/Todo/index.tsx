@@ -14,7 +14,7 @@ const Todo = () => (
                 <p className="text-subtitle">
                     Ajudaremos a se planejar <br /> para não perder nenhum compromisso.
             </p>
-                <Link to='/homes'>
+                <Link to='/admin'>
                     <ButtonIcon text='inicie agora a suas tarefas'/>
                 </Link>
             </div>
