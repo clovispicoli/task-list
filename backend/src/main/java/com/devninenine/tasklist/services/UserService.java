@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devninenine.tasklist.dto.RoleDTO;
 import com.devninenine.tasklist.dto.UserDTO;
 import com.devninenine.tasklist.dto.UserInsertDTO;
+import com.devninenine.tasklist.dto.UserUpdateDTO;
 import com.devninenine.tasklist.entities.Role;
 import com.devninenine.tasklist.entities.User;
 import com.devninenine.tasklist.repositories.RoleRepository;
@@ -58,7 +59,7 @@ public class UserService {
 	}
 
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
 			User entity = repository.getOne(id);
 			copyDtoToEntity(dto, entity);
