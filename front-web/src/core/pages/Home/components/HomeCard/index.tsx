@@ -1,5 +1,5 @@
-import { Homes } from 'core/types/Task';
 import React from 'react';
+import { Homes } from 'core/types/Task';
 import './styles.scss';
 
 type Props = {

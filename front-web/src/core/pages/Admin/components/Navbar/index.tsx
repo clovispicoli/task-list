@@ -11,12 +11,12 @@ const Navbar = () => (
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/admin/categories" className="admin-nav-item" >
+                <NavLink to="/admins/categories" className="admin-nav-item" >
                     Minhas Categorias
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/admin/users" className="admin-nav-item" >
+                <NavLink to="/admins/users" className="admin-nav-item" >
                     Meus Usuários
                 </NavLink>
             </li>

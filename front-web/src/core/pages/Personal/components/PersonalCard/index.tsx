@@ -5,6 +5,7 @@ import './styles.scss';
 type Props = {
     task: Personals;
 }
+
 const PersonalCard = ({ task }: Props) => (
     <div className="card-base border-radius-10 personal-card">
         <h6 className="personal-name">

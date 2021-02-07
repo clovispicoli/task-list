@@ -5,7 +5,7 @@ const List = () => {
     const history = useHistory();
 
     const handleCreate = () => {
-        history.push('/admin/products/create');
+        history.push('/admins/tasks/create');
     }
 
     return (

@@ -1,5 +1,5 @@
-import { Works } from 'core/types/Task';
 import React from 'react';
+import { Works } from 'core/types/Task';
 import './styles.scss';
 
 type Props = {
