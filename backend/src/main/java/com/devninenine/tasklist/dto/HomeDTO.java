@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import com.devninenine.tasklist.entities.Category;
 import com.devninenine.tasklist.entities.Home;
 
@@ -13,8 +16,14 @@ public class HomeDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	
+	@Size(min = 5, max = 60, message = "Deve ter entre 5 e 60 caracteres")
+	@NotBlank(message = "Campo requerido")
 	private String name;
+	
+	@NotBlank(message = "Campo requerido")
 	private String description;
+	
 	private LocalDate date;
 
 	private List<CategoryDTO> categories = new ArrayList<>();
