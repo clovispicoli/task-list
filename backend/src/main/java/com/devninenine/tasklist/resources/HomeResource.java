@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.devninenine.tasklist.dto.TaskDTO;
-import com.devninenine.tasklist.services.TaskService;
+import com.devninenine.tasklist.dto.HomeDTO;
+import com.devninenine.tasklist.services.HomeService;
 
 @RestController
-@RequestMapping(value = "/tasks")
-public class TaskResource {
+@RequestMapping(value = "/homes")
+public class HomeResource {
 
 	@Autowired
-	private TaskService service;
+	private HomeService service;
 
 	@GetMapping
-	public ResponseEntity<Page<TaskDTO>> findAll(
+	public ResponseEntity<Page<HomeDTO>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
@@ -38,32 +38,32 @@ public class TaskResource {
 
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 
-		Page<TaskDTO> list = service.findAllPaged(pageRequest);
+		Page<HomeDTO> list = service.findAllPaged(pageRequest);
 
 		return ResponseEntity.ok().body(list);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<TaskDTO> findById(@PathVariable Long id){
-		TaskDTO dto = service.findById(id);
+	public ResponseEntity<HomeDTO> findById(@PathVariable Long id){
+		HomeDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
 
 	@PostMapping
-	public ResponseEntity<TaskDTO> insert(@RequestBody TaskDTO dto){
+	public ResponseEntity<HomeDTO> insert(@RequestBody HomeDTO dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<TaskDTO> update(@PathVariable Long id, @RequestBody TaskDTO dto){
+	public ResponseEntity<HomeDTO> update(@PathVariable Long id, @RequestBody HomeDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<TaskDTO> delete(@PathVariable Long id){
+	public ResponseEntity<HomeDTO> delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

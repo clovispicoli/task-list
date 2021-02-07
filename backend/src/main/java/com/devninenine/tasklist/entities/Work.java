@@ -1,7 +1,7 @@
 package com.devninenine.tasklist.entities;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_task")
-public class Task implements Serializable{
+@Table(name = "tb_work")
+public class Work implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -26,21 +26,21 @@ public class Task implements Serializable{
 	private String name;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant date;
+	private LocalDate date;
 	
 	@Column(columnDefinition = "TEXT")
 	private String description;
 	
 	@ManyToMany
-	@JoinTable(name = "tb_task_category",
-	   	joinColumns = @JoinColumn(name = "task_id"),
+	@JoinTable(name = "tb_work_category",
+	   	joinColumns = @JoinColumn(name = "work_id"),
 	   	inverseJoinColumns = @JoinColumn(name = "category_id"))
 	Set<Category> categories = new HashSet<>();
 	
-	public Task() {
+	public Work() {
 	}
 
-	public Task(Long id, String name, String description, Instant date) {
+	public Work(Long id, String name, String description, LocalDate date) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -71,11 +71,11 @@ public class Task implements Serializable{
 		this.description = description;
 	}
 
-	public Instant getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Instant date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
@@ -99,7 +99,7 @@ public class Task implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Task other = (Task) obj;
+		Work other = (Work) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

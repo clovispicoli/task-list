@@ -13,51 +13,51 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devninenine.tasklist.dto.CategoryDTO;
-import com.devninenine.tasklist.dto.TaskDTO;
+import com.devninenine.tasklist.dto.WorkDTO;
 import com.devninenine.tasklist.entities.Category;
-import com.devninenine.tasklist.entities.Task;
+import com.devninenine.tasklist.entities.Work;
 import com.devninenine.tasklist.repositories.CategoryRepository;
-import com.devninenine.tasklist.repositories.TaskRepository;
+import com.devninenine.tasklist.repositories.WorkRepository;
 import com.devninenine.tasklist.services.exceptions.DatabaseException;
 import com.devninenine.tasklist.services.exceptions.ResourceNotFoundException;
 
 @Service
-public class TaskService {
+public class WorkService {
 
 	@Autowired
-	private TaskRepository repository;
+	private WorkRepository repository;
 
 	@Autowired
 	private CategoryRepository categoryRepository;
 
 	@Transactional(readOnly = true)
-	public Page<TaskDTO> findAllPaged(PageRequest pageRequest) {
-		Page<Task> list = repository.findAll(pageRequest);
-		return list.map(x -> new TaskDTO(x));
+	public Page<WorkDTO> findAllPaged(PageRequest pageRequest) {
+		Page<Work> list = repository.findAll(pageRequest);
+		return list.map(x -> new WorkDTO(x));
 	}
 
 	@Transactional(readOnly = true)
-	public TaskDTO findById(Long id) {
-		Optional<Task> obj = repository.findById(id);
-		Task entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
-		return new TaskDTO(entity, entity.getCategories());
+	public WorkDTO findById(Long id) {
+		Optional<Work> obj = repository.findById(id);
+		Work entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
+		return new WorkDTO(entity, entity.getCategories());
 	}
 
 	@Transactional
-	public TaskDTO insert(TaskDTO dto) {
-		Task entity = new Task();
+	public WorkDTO insert(WorkDTO dto) {
+		Work entity = new Work();
 		copyDtoToEntity(dto, entity);
 		entity = repository.save(entity);
-		return new TaskDTO(entity);
+		return new WorkDTO(entity);
 	}
 
 	@Transactional
-	public TaskDTO update(Long id, TaskDTO dto) {
+	public WorkDTO update(Long id, WorkDTO dto) {
 		try {
-			Task entity = repository.getOne(id);
+			Work entity = repository.getOne(id);
 			copyDtoToEntity(dto, entity);
 			entity = repository.save(entity);
-			return new TaskDTO(entity);
+			return new WorkDTO(entity);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Id not found " + id);
 		}
@@ -73,7 +73,7 @@ public class TaskService {
 		}
 	}
 
-	private void copyDtoToEntity(TaskDTO dto, Task entity) {
+	private void copyDtoToEntity(WorkDTO dto, Work entity) {
 
 		entity.setName(dto.getName());
 		entity.setDescription(dto.getDescription());

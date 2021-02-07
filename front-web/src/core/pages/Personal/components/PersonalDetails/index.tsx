@@ -1,38 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ReactComponent as ArrowIcon } from 'core/assets/images/arrow.svg';
 import './styles.scss';
+import { makeRequest } from 'core/utils/request';
+import { Homes } from 'core/types/Task';
 
 type ParamsType = {
     personalId: string;
 }
 
-const PersonalDetails = () => {
+const PersonalDetails = ()  => {
     const { personalId } = useParams<ParamsType>();
+    const [personal, setHome] = useState<Homes>()
 
-    console.log(personalId);
+    useEffect(() => {
+        makeRequest({ url: `/personals/${personalId}`})
+        .then(response => setHome(response.data));
+    }, [personalId]);
 
     return (
         <div className="personal-details-container">
             <div className="card-base border-radius-20 personal-details">
-                <Link to="/" className="personal-details-goback">
+                <Link to="/personals" className="personal-details-goback">
                     <ArrowIcon className="icon-goback" />
                     <h1 className="text-goback">voltar</h1>
                 </Link>
                 <div className="row">
-                    <div className="col-12 work-details-card">
-                        <h1 className="work-details-name">
-                            Título da tarefa
-                       </h1>
-                        <h1 className="work-description-title">
-                            Data: 20/09/2022
+                    <div className="col-12 personal-details-card">
+                        <h1 className="personal-description-title">
+                            Descrição da tarefa
                         </h1>
-                        <p className="work-description-text">
-                            Seja um mestre em multitarefas com a capacidade para exibir quatro
-                            aplicativos simultâneos na tela. A tela está ficando abarrotada?
-                            Crie áreas de trabalho virtuais para obter mais espaço e trabalhar
-                            com os itens que você deseja. Além disso, todas as notificações e
-                            principais configurações são reunidas em uma única tela de fácil acesso.
+                        <h1 className="personal-details-name">
+                            {personal?.name}
+                       </h1>
+                        <p className="personal-description-text">
+                            {personal?.description}
+                        </p>
+                        <p className="task-date">
+                            {personal?.date}
                         </p>
                     </div>
                 </div>

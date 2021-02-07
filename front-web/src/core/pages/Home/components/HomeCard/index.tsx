@@ -1,15 +1,18 @@
+import { Homes } from 'core/types/Task';
 import React from 'react';
 import './styles.scss';
 
-const HomeCard = () => (
+type Props = {
+    task: Homes;
+}
+
+const HomeCard = ({ task }: Props) => (
     <div className="card-base border-radius-10 home-card">
-        Descricao da Tarefa
+        <h6 className="home-name">
+            {task.name}
+        </h6>
         <div className="home-info">
-        Voce deve procurar um psicoterapeuta urgente para lhe ajudar com seus problemas amorosos.
-            <h6 className="home-name">
-               22/06/2008
-            </h6>
-            <div className="home-container"></div>
+            {task.date}
         </div>
     </div>
 );

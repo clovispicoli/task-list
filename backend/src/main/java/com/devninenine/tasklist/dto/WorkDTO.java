@@ -1,42 +1,42 @@
 package com.devninenine.tasklist.dto;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import com.devninenine.tasklist.entities.Category;
-import com.devninenine.tasklist.entities.Task;
+import com.devninenine.tasklist.entities.Work;
 
-public class TaskDTO implements Serializable {
+public class WorkDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String name;
 	private String description;
-	private Instant date;
+	private LocalDate date;
 
 	private List<CategoryDTO> categories = new ArrayList<>();
 
-	public TaskDTO() {
+	public WorkDTO() {
 	}
 
-	public TaskDTO(Long id, String name, String description, Instant date) {
+	public WorkDTO(Long id, String name, String description, LocalDate date) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.date = date;
 	}
 
-	public TaskDTO(Task entity) {
+	public WorkDTO(Work entity) {
 		this.id = entity.getId();
 		this.name = entity.getName();
 		this.description = entity.getDescription();
 		this.date = entity.getDate();
 	}
 
-	public TaskDTO(Task entity, Set<Category> categories) {
+	public WorkDTO(Work entity, Set<Category> categories) {
 		this(entity);
 		categories.forEach(cat -> this.categories.add(new CategoryDTO(cat)));
 	}
@@ -66,11 +66,11 @@ public class TaskDTO implements Serializable {
 	}
 
 
-	public Instant getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Instant date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
@@ -81,5 +81,4 @@ public class TaskDTO implements Serializable {
 	public void setCategories(List<CategoryDTO> categories) {
 		this.categories = categories;
 	}
-
 }

@@ -6,7 +6,7 @@ import Work from './pages/Work';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Todo from './pages/Todo';
-import HomeDetails from './pages/Home/HomeDetails';
+import HomeDetails from './pages/Home/components/HomeDetails';
 import PersonalDetails from './pages/Personal/components/PersonalDetails';
 import WorkDetails from './pages/Work/components/WorkDetails';
 

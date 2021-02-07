@@ -1,15 +1,17 @@
 import React from 'react';
+import { Personals } from 'core/types/Task';
 import './styles.scss';
 
-const PersonalCard = () => (
+type Props = {
+    task: Personals;
+}
+const PersonalCard = ({ task }: Props) => (
     <div className="card-base border-radius-10 personal-card">
-        Descricao da Tarefa
+        <h6 className="personal-name">
+            {task.name}
+        </h6>
         <div className="personal-info">
-        Voce deve procurar um psicoterapeuta urgente para lhe ajudar com seus problemas amorosos.
-            <h6 className="personal-name">
-               22/06/2008
-            </h6>
-            <div className="personal-container"></div>
+            {task.date}
         </div>
     </div>
 );
