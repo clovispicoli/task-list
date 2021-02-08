@@ -1,24 +1,31 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from 'core/pages/Admin/components/Navbar';
-import Tasks from 'core/pages/Admin/components/Tasks';
+import Navbar from './components/Navbar';
+import Tasks from './components/Tasks';
+import './styles.scss';
 
 const Admin = () => (
     <div className="admin-container">
-         <Navbar />
-         <div className="admin-content">
+        < Navbar />
+        <div className="admin-content">
             <Switch>
-                <Route path="/admins/tasks">
+                <Route path="/admin/homes">
                     <Tasks />
                 </Route>
-                <Route path="/admins/categories">
-                    <h1>Categories</h1>
+                <Route path="/admin/personals">
+                    <Tasks />
                 </Route>
-                <Route path="/admins/users">
-                    <h1>Users</h1>
+                <Route path="/admin/works">
+                    <Tasks />
+                </Route>
+                <Route path="/admin/categories">
+                    <Tasks />
+                </Route>
+                <Route path="/admin/users">
+                    <Tasks />
                 </Route>
             </Switch>
-         </div>
+        </div>
     </div>
 );
 

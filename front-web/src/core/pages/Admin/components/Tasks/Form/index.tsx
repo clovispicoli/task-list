@@ -48,7 +48,7 @@ const Form = () => {
                     type="text" 
                     className="form-control mb-5" 
                     onChange={handleOnChange}
-                    placeholder="Nome do produto"
+                    placeholder="Nome da tarefa"
                 />
                 <select 
                     value={formData.category}
@@ -61,11 +61,11 @@ const Form = () => {
                 </select>
                 <input  
                     value={formData.date}
-                    name="price"
+                    name="date"
                     type="text"
                     className="form-control"
                     onChange={handleOnChange}
-                    placeholder="Preco"
+                    placeholder="Data"
                 />
             </div>
             <div className="col-6">

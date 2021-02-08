@@ -6,18 +6,28 @@ const Navbar = () => (
     <nav className="admin-nav-container" >
         <ul>
             <li>
-                <NavLink to="/admins/tasks" className="admin-nav-item" >
-                    Minhas Tarefas
+                <NavLink to="/admin/homes" className="admin-nav-item ">
+                    Homework
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/admins/categories" className="admin-nav-item" >
-                    Minhas Categorias
+                <NavLink to="/admin/personals" className="admin-nav-item ">
+                    Personal tasks
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/admins/users" className="admin-nav-item" >
-                    Meus Usuários
+                <NavLink to="/admin/works" className="admin-nav-item ">
+                    Work Tasks
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to="/admin/categories" className="admin-nav-item ">
+                    My categories
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to="/admin/users" className="admin-nav-item ">
+                    My users
                 </NavLink>
             </li>
         </ul>

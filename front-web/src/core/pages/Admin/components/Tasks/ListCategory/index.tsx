@@ -1,11 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const List = () => {
+const ListCategory = () => {
     const history = useHistory();
 
     const handleCreate = () => {
-        history.push('/admins/tasks/create');
+        history.push('/admin/categories/create');
     }
 
     return (
@@ -17,4 +17,4 @@ const List = () => {
     )
 }
 
-export default List; 
+export default ListCategory; 
