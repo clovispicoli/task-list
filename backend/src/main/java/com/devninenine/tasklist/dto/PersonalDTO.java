@@ -90,5 +90,4 @@ public class PersonalDTO implements Serializable {
 	public void setCategories(List<CategoryDTO> categories) {
 		this.categories = categories;
 	}
-
 }
