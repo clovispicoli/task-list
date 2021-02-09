@@ -15,6 +15,7 @@
 	<name>tasklist</name>
 	<description>Project Task List</description>
 	<properties>
+		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 	</properties>
 
