@@ -9,11 +9,13 @@
 		<version>2.4.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.devninenine</groupId>
 	<artifactId>tasklist</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tasklist</name>
 	<description>Project Task List</description>
+	
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
@@ -49,32 +51,14 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-
+		
 		<dependency>
-		    <groupId>org.springframework.security.oauth.boot</groupId>
-		    <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+			<groupId>org.springframework.security.oauth.boot</groupId>
+			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
 		</dependency>
-
+		
 	</dependencies>
 
 	<build>
@@ -85,7 +69,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -97,4 +80,5 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>	
+
 </project>
