@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Auth from '../Auth';
 import Navbar from './components/Navbar';
 import Tasks from './components/Tasks';
 import './styles.scss';
@@ -23,6 +24,9 @@ const Admin = () => (
                 </Route>
                 <Route path="/admin/users">
                     <Tasks />
+                </Route>
+                <Route path="/admin/auth">
+                    <Auth />
                 </Route>
             </Switch>
         </div>

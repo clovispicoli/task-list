@@ -9,6 +9,7 @@ import Admin from './pages/Admin';
 import HomeDetails from './pages/Home/components/HomeDetails';
 import PersonalDetails from './pages/Personal/components/PersonalDetails';
 import WorkDetails from './pages/Work/components/WorkDetails';
+import Auth from './pages/Auth';
 
 const Routes = () => (
    <BrowserRouter>
@@ -42,6 +43,10 @@ const Routes = () => (
             <Redirect from="/admin" to="/admin/users" exact/>
          <Route path="/admin" >
             <Admin />
+         </Route>
+         <Redirect from="/admin/auth" to="/admin/auth/login" exact/>
+         <Route path="/admin/auth">
+            <Auth />
          </Route>
       </Switch>
    </BrowserRouter>
