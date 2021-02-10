@@ -25,7 +25,7 @@ const Admin = () => (
                 <Route path="/admin/users">
                     <Tasks />
                 </Route>
-                <Route path="/admin/auth">
+                <Route path="/admin/auth/login">
                     <Auth />
                 </Route>
             </Switch>

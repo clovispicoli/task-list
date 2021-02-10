@@ -2,17 +2,18 @@ import React from 'react';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Todo from './pages/Todo';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Router, Redirect, Route, Switch } from 'react-router-dom';
 import Personal from './pages/Personal';
 import Work from './pages/Work';
 import Admin from './pages/Admin';
 import HomeDetails from './pages/Home/components/HomeDetails';
 import PersonalDetails from './pages/Personal/components/PersonalDetails';
 import WorkDetails from './pages/Work/components/WorkDetails';
+import history from './utils/history';
 import Auth from './pages/Auth';
 
 const Routes = () => (
-   <BrowserRouter>
+   <Router history={history}>
       <Navbar />
       <Switch>
          <Route path="/" exact>
@@ -49,7 +50,7 @@ const Routes = () => (
             <Auth />
          </Route>
       </Switch>
-   </BrowserRouter>
+      </Router>
 );
 
 export default Routes; 

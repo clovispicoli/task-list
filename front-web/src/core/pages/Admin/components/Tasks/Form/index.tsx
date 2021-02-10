@@ -1,4 +1,4 @@
-import { makeRequest } from 'core/utils/request';
+import { makePrivateRequest } from 'core/utils/request';
 import React, { useState } from 'react'
 import BaseForm from 'core/pages/Admin/components/BaseForm';
 import './styles.scss';
@@ -33,7 +33,7 @@ const Form = () => {
             ...formData,
             categories: [{ id: formData.category }]
         }
-        makeRequest({ url: '/tasks', method: 'POST', data: payload }).then(() => {
+        makePrivateRequest({ url: '/admin', method: 'POST', data: payload }).then(() => {
             setFormData({ name: '', category: '', date: '', description: '' });
         });
     }
