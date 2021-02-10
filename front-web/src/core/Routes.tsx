@@ -41,10 +41,10 @@ const Routes = () => (
             <Redirect from="/admin" to="/admin/works" exact/>
             <Redirect from="/admin" to="/admin/categories" exact/>
             <Redirect from="/admin" to="/admin/users" exact/>
+         
          <Route path="/admin" >
             <Admin />
          </Route>
-         <Redirect from="/admin/auth" to="/admin/auth/login" exact/>
          <Route path="/admin/auth">
             <Auth />
          </Route>
