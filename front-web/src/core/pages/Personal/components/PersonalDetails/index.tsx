@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ReactComponent as ArrowIcon } from 'core/assets/images/arrow.svg';
 import { makeRequest } from 'core/utils/request';
-import { Personals } from 'core/types/Task';
+import { Task } from 'core/types/Task';
 import InfoLoader from 'core/components/Loaders/InfoLoader';
 import './styles.scss';
 
@@ -12,7 +12,7 @@ type ParamsType = {
 
 const PersonalDetails = () => {
     const { personalId } = useParams<ParamsType>();
-    const [personal, setpersonal] = useState<Personals>()
+    const [personal, setpersonal] = useState<Task>()
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {

@@ -1,5 +1,6 @@
+import PrivateRoute from 'core/components/Routes/PrivateRoute';
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Auth from '../Auth';
 import Navbar from './components/Navbar';
 import Tasks from './components/Tasks';
@@ -10,24 +11,24 @@ const Admin = () => (
         < Navbar />
         <div className="admin-content">
             <Switch>
-                <Route path="/admin/homes">
+                <PrivateRoute path="/admin/homes">
                     <Tasks />
-                </Route>
-                <Route path="/admin/personals">
+                </PrivateRoute>
+                <PrivateRoute path="/admin/personals">
                     <Tasks />
-                </Route>
-                <Route path="/admin/works">
+                </PrivateRoute>
+                <PrivateRoute path="/admin/works">
                     <Tasks />
-                </Route>
-                <Route path="/admin/categories">
+                </PrivateRoute>
+                <PrivateRoute path="/admin/categories">
                     <Tasks />
-                </Route>
-                <Route path="/admin/users">
+                </PrivateRoute>
+                <PrivateRoute path="/admin/users" allowedRoutes={['ROLE_ADMIN']}>
                     <Tasks />
-                </Route>
-                <Route path="/admin/auth/login">
+                </PrivateRoute>
+                <PrivateRoute path="/admin/auth/login">
                     <Auth />
-                </Route>
+                </PrivateRoute>
             </Switch>
         </div>
     </div>

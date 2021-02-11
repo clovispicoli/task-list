@@ -1,4 +1,4 @@
-import { PersonalsResponse } from 'core/types/Task';
+import { TaskResponse } from 'core/types/Task';
 import { makeRequest } from 'core/utils/request';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import './styles.scss';
 
 const Personal = () => {
 
-    const [personalsResponse, setPersonalsResponse] = useState<PersonalsResponse>();
+    const [personalsResponse, setPersonalsResponse] = useState<TaskResponse>();
     const [ isLoading, setIsLoading ] = useState(false);
     const [ activePage, setActivePage ] = useState(0);
 

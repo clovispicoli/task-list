@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ReactComponent as ArrowIcon } from 'core/assets/images/arrow.svg';
 import { makeRequest } from 'core/utils/request';
-import { Homes } from 'core/types/Task';
+import { Task } from 'core/types/Task';
 import InfoLoader from 'core/components/Loaders/InfoLoader';
 import './styles.scss';
 
@@ -12,7 +12,7 @@ type ParamsType = {
 
 const HomeDetails = () => {
     const { homeId } = useParams<ParamsType>();
-    const [home, setHome] = useState<Homes>()
+    const [home, setHome] = useState<Task>()
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {

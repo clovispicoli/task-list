@@ -1,4 +1,4 @@
-import { HomesResponse } from 'core/types/Task';
+import { TaskResponse } from 'core/types/Task';
 import { makeRequest } from 'core/utils/request';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import './styles.scss';
 
 const Home = () => {
 
-    const [homesResponse, setHomesResponse] = useState<HomesResponse>();
+    const [homesResponse, setHomesResponse] = useState<TaskResponse>();
     const [ isLoading, setIsLoading ] = useState(false);
     const [ activePage, setActivePage ] = useState(0);
 

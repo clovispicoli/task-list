@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Form from './Form';
 import ListCategory from './ListCategory';
 import ListHome from './ListHome';
 import ListPersonal from './ListPersonal';
@@ -25,21 +24,6 @@ const Tasks = () => {
                 </Route>
                 <Route path="/admin/users" exact>
                    <ListUser />
-                </Route>
-                <Route path="/admin/homes/create" exact>
-                    <Form />
-                </Route>
-                <Route path="/admin/personals/create" exact>
-                    <Form />
-                </Route>
-                <Route path="/admin/works/create" exact>
-                    <Form />
-                </Route>
-                <Route path="/admin/categories/create" exact>
-                    <Form />
-                </Route>
-                <Route path="/admin/users/create" exact>
-                    <Form />
                 </Route>
                 <Route path="/admin/homes/:homeId" exact>
                     <h1>Editar uma tarefa Home</h1>

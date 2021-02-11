@@ -46,7 +46,8 @@ const Routes = () => (
          <Route path="/admin" >
             <Admin />
          </Route>
-         <Route path="/admin/auth">
+         <Redirect from="/auth" to="/auth/login" exact/>
+         <Route path="/auth">
             <Auth />
          </Route>
       </Switch>

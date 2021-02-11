@@ -1,9 +1,9 @@
 import React from 'react';
-import { Personals } from 'core/types/Task';
+import { Task } from 'core/types/Task';
 import './styles.scss';
 
 type Props = {
-    task: Personals;
+    task: Task;
 }
 
 const PersonalCard = ({ task }: Props) => (

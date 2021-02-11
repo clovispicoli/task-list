@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ButtonIcon from 'core/components/ButtonIcon';
 import AuthCard from '../AuthCard';
@@ -7,22 +7,29 @@ import './styles.scss';
 import { makeLogin } from 'core/utils/request';
 import { saveSessionData } from 'core/utils/auth';
 
-type FormData = {
+type FormState = {
     username: string;
     password: string;
 }
 
+type LocationState = {
+    from: string;
+}
+
 const Login = () => {
-    const { register, handleSubmit, errors } = useForm<FormData>();
+    const { register, handleSubmit, errors } = useForm<FormState>();
     const [hasError, setHasError] = useState(false);
     const history = useHistory();
+    let location = useLocation<LocationState>();
 
-    const onSubmit = (data: FormData) => {
+    const { from } = location.state || { from: { pathname: "/admin" } };
+
+    const onSubmit = (data: FormState) => {
         makeLogin(data)
         .then(response => {
             setHasError(false);
             saveSessionData(response.data);
-            history.push('/admin');
+            history.push(from);
         })
         .catch(() => {
             setHasError(true);
@@ -71,7 +78,7 @@ const Login = () => {
                         </div>
                     )}
                 </div>
-                <Link to="/admin/auth/recover" className="login-link-recover">
+                <Link to="/auth/recover" className="login-link-recover">
                     Esqueci a senha?
                 </Link>
                 <div className="login-submit">
@@ -81,7 +88,7 @@ const Login = () => {
                     <span className="not-registered">
                         Não tem Cadastro?
                     </span>
-                    <Link to="/admin/auth/register" className="login-link-register">
+                    <Link to="/auth/register" className="login-link-register">
                         CADASTRAR
                     </Link>
                 </div>
