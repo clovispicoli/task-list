@@ -15,7 +15,7 @@ type LoginData = {
     password: string;
 }
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:8080';
 
 axios.interceptors.response.use(function (response) {
     return response;
@@ -23,7 +23,6 @@ axios.interceptors.response.use(function (response) {
     if (error.response.status === 401) {
         logout();
     }
-
     return Promise.reject(error);
   });
 

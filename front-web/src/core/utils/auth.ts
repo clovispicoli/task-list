@@ -1,5 +1,5 @@
-
-import history from './history';import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
+import history from './history';
 export const CLIENT_ID = 'tasklist';
 export const CLIENT_SECRET = 'tasklist123';
 
@@ -10,7 +10,6 @@ type LoginResponse = {
     scope: string,
     userFirstName: string,
     userId: number;
-
 }
 
 export type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';

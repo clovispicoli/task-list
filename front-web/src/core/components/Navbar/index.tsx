@@ -25,11 +25,11 @@ const Navbar = () => {
             </div>
             <div className="col-6">
                 <ul className="main-menu">
-                    {/* <li>
+                    <li>
                         <NavLink to="/" exact className="nav-link">
                             Todo
                         </NavLink>
-                    </li> */}
+                    </li>
                     <li>
                         <NavLink to="/homes" className="nav-link">
                             Home
